@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
-"use client";
+'use client';
 
-import { Button } from "@nextui-org/button";
-import Link from "next/link";
+import { Button } from '@nextui-org/button';
+import Link from 'next/link';
 import {
   Form,
   FormControl,
@@ -11,17 +11,17 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "~/components/ui/form";
+} from '~/components/ui/form';
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "@nextui-org/input";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Input } from '@nextui-org/input';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
-import { redirect, usePathname } from "next/navigation";
-import { OAuthButton } from "~/components/OAuthButton";
-import { signIn } from "../../actions";
+import { redirect, usePathname } from 'next/navigation';
+import { OAuthButton } from '~/components/auth/OAuthButton';
+import { signIn } from '../../actions';
 
 const registerSchema = z.object({
   email: z.string().email(),
@@ -36,8 +36,8 @@ export default function Login() {
   const form = useForm<LoginInput>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
   });
 
@@ -47,13 +47,13 @@ export default function Login() {
     const result = await signIn(data);
     console.log(result);
     if (result.error) {
-      return redirect("/login?message=Could not authenticate user");
+      return redirect('/login?message=Could not authenticate user');
     }
 
     // Successful login handling
     console.log(
-      "Successful login redirecting to:",
-      `/auth/callback?next=${pathname}`,
+      'Successful login redirecting to:',
+      `/auth/callback?next=${pathname}`
     );
     redirect(`/`);
   };
