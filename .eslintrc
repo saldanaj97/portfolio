@@ -1,0 +1,57 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+  },
+  "ignorePatterns": ["**/*"], // Ignore everything by default
+  "overrides": [
+    {
+      "files": [
+        "src/components/**/*.{ts,tsx,js,jsx}",
+        "src/app/**/*.{ts,tsx,js,jsx}",
+      ],
+      "excludedFiles": "*.test.{ts,tsx,js,jsx}",
+      "rules": {
+        // You can add specific rules for these directories if needed
+      },
+    },
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        "prefer": "type-imports",
+        "fixStyle": "inline-type-imports",
+      },
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+      },
+    ],
+    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": {
+          "attributes": false,
+        },
+      },
+    ],
+    "react/react-in-jsx-scope": "off",
+  },
+}
