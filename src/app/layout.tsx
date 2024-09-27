@@ -6,7 +6,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import React from "react";
 
 export const metadata = {
-  title: "Juan Saldana",
+  title: "Juan Saldaña",
   description:
     "Software Engineer and Full Stack Developer based in Dallas, TX.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
@@ -23,7 +23,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${GeistSans.variable}`}
     >
-      <body className="flex w-full justify-center">
+      <body className="flex w-full justify-center px-8">
         <div className="w-full">
           <NextUIProvider>{children}</NextUIProvider>
         </div>
