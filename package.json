@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "@nextui-org/badge": "^2.0.32",
     "@nextui-org/button": "^2.0.38",
+    "@nextui-org/card": "^2.0.34",
     "@nextui-org/input": "^2.2.5",
     "@nextui-org/react": "^2.4.8",
     "@radix-ui/react-label": "^2.1.0",
