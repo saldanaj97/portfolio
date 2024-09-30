@@ -14,10 +14,10 @@ export function Navbar() {
             <a href="/blog">Blog</a>
           </Button>
           <Button>
-            <a href="/projects">Projects</a>
+            <a href="/about">About</a>
           </Button>
           <Button>
-            <a href="/about">About</a>
+            <a href="/projects">Projects</a>
           </Button>
         </ButtonGroup>
       </nav>
