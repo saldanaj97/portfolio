@@ -1,5 +1,6 @@
 "use client";
 import { Button, ButtonGroup } from "@nextui-org/button";
+import Link from "next/link";
 import { LocalTimeComponent } from "./local-time";
 
 export function Navbar() {
@@ -11,13 +12,13 @@ export function Navbar() {
       <nav className="justify-self-center">
         <ButtonGroup>
           <Button>
-            <a href="/blog">Blog</a>
+            <Link href="/blog">Blog</Link>
           </Button>
           <Button>
-            <a href="/projects">Portfolio</a>
+            <Link href="/projects">Portfolio</Link>
           </Button>
           <Button>
-            <a href="/contact">Contact Me</a>
+            <Link href="/contact-me">Contact Me</Link>
           </Button>
         </ButtonGroup>
       </nav>
