@@ -1,9 +1,9 @@
 import { cookies } from "next/headers";
 import { AdminBanner } from "~/components/auth/AdminBanner";
 import { createClient } from "~/utils/supabase/server";
-import { Header } from "./(sections)/header";
-import { Projects } from "./(sections)/projects";
-import Skills from "./(sections)/skills";
+import { Header } from "./(landing-page)/header";
+import { Projects } from "./(landing-page)/projects";
+import Skills from "./(landing-page)/skills";
 
 export default async function HomePage() {
   const supabase = createClient(cookies());
