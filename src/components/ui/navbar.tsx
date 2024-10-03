@@ -7,7 +7,9 @@ export function Navbar() {
   return (
     <header className="hidden w-full grid-cols-3 items-center py-2 md:grid">
       <div className="justify-self-start">
-        <h1 className="text-2xl font-bold">Juan Saldaña</h1>
+        <h1 className="text-2xl font-bold">
+          <Link href="/">Juan Saldaña</Link>
+        </h1>
       </div>
       <nav className="justify-self-center">
         <ButtonGroup>
@@ -15,7 +17,7 @@ export function Navbar() {
             <Link href="/blog">Blog</Link>
           </Button>
           <Button>
-            <Link href="/projects">Portfolio</Link>
+            <Link href="/">Portfolio</Link>
           </Button>
           <Button>
             <Link href="/contact-me">Contact Me</Link>
