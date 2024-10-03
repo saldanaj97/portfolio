@@ -16,6 +16,7 @@
     "@nextui-org/button": "^2.0.38",
     "@nextui-org/card": "^2.0.34",
     "@nextui-org/input": "^2.2.5",
+    "@nextui-org/radio": "^2.1.5",
     "@nextui-org/react": "^2.4.8",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
