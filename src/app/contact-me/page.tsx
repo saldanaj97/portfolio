@@ -1,4 +1,4 @@
-import { Radio, RadioGroup } from "@nextui-org/radio";
+import { Checkbox, CheckboxGroup } from "@nextui-org/react";
 import { AiOutlineMail } from "react-icons/ai";
 import { CiLinkedin } from "react-icons/ci";
 import { FiPhoneCall } from "react-icons/fi";
@@ -106,7 +106,7 @@ export default function ContactMe() {
               type="textarea"
               className="h-[40px] w-full border-b-2 border-b-black/60 bg-transparent py-1 text-sm placeholder-black/60 focus:border-white focus:outline-none focus:transition-colors focus:duration-300"
             />
-            <RadioGroup
+            <CheckboxGroup
               label="What can I help you with?"
               color="secondary"
               classNames={{
@@ -114,16 +114,16 @@ export default function ContactMe() {
               }}
             >
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <Radio value="implement-designs">
-                  Implement existing design
-                </Radio>
-                <Radio value="full-time-job">Full-time opportunity</Radio>
-                <Radio value="part-time-job">
+                <Checkbox value="implement-designs">
+                  Implement your design
+                </Checkbox>
+                <Checkbox value="full-time-job">Full-time opportunity</Checkbox>
+                <Checkbox value="part-time-job">
                   Part-time/Internship opportunity
-                </Radio>
-                <Radio value="other">Other</Radio>
+                </Checkbox>
+                <Checkbox value="other">Other</Checkbox>
               </div>
-            </RadioGroup>
+            </CheckboxGroup>
             <div className="flex justify-center">
               <button className="rounded-xl bg-white px-4 py-2 text-black">
                 Submit
