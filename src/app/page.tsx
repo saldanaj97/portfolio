@@ -21,7 +21,6 @@ export default async function HomePage() {
         <Skills />
         <Projects />
         <Experience />
-        <div className="h-screen">Oi</div>
       </div>
     </main>
   );
