@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { AdminBanner } from "~/components/auth/AdminBanner";
 import { createClient } from "~/utils/supabase/server";
+import { Experience } from "./(landing-page)/experience";
 import { Header } from "./(landing-page)/header";
 import { Projects } from "./(landing-page)/projects";
 import Skills from "./(landing-page)/skills";
@@ -19,6 +20,8 @@ export default async function HomePage() {
         <Header />
         <Skills />
         <Projects />
+        <Experience />
+        <div className="h-screen">Oi</div>
       </div>
     </main>
   );
