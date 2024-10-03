@@ -57,7 +57,7 @@ export default function ContactMe() {
 
   const Information = () => {
     return (
-      <div className="flex h-full w-2/5 flex-col gap-y-4 rounded-s-xl bg-white px-12">
+      <div className="flex h-full w-2/5 flex-col justify-center gap-y-4 rounded-s-xl bg-white px-12">
         {informationSectionCopywriting.map((section) => (
           <div className="flex flex-col" key={section.title}>
             <div className="flex flex-row items-start space-x-2">
@@ -78,7 +78,7 @@ export default function ContactMe() {
 
   const ContactForm = () => {
     return (
-      <div className="flex h-full w-3/5 flex-col justify-center rounded-xl bg-primary px-12 py-16">
+      <div className="flex w-3/5 flex-col justify-center rounded-xl bg-primary px-12 py-16">
         <div className="flex flex-col justify-evenly space-y-8">
           {/* Headers */}
           <h1 className="text-4xl font-semibold">
@@ -136,8 +136,8 @@ export default function ContactMe() {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center">
-      <div className="flex w-4/5 max-w-7xl flex-row items-center justify-center rounded-xl">
+    <div className="flex flex-row justify-center">
+      <div className="flex w-4/5 max-w-7xl rounded-xl">
         <Information />
         <ContactForm />
       </div>
