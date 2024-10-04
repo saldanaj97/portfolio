@@ -31,7 +31,7 @@ export default function Skills() {
     count,
   }) => {
     return (
-      <div className="flex flex-col items-center rounded bg-gray-100 p-4">
+      <div className="flex flex-col items-center justify-center rounded p-4">
         <Icon size={64} className="text-blue-500" />
         <h2 className="text-2xl font-bold">{count}</h2>
         <p>{label}</p>
@@ -42,7 +42,13 @@ export default function Skills() {
   return (
     <div className="flex w-full flex-row justify-center gap-8">
       <div className="flex flex-col justify-between">
-        <IconComponent icon={FaReact} label="Javascript Projects" count="20+" />
+        <div className="flex">
+          <IconComponent
+            icon={FaReact}
+            label="Javascript Projects"
+            count="20+"
+          />
+        </div>
         <IconComponent icon={MdWorkHistory} label="Past Clients" count="5+" />
       </div>
 
