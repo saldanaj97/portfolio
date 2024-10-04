@@ -6,6 +6,11 @@ import {
 } from "~/components/ui/nav-buttons";
 
 const Hero = () => {
+  const imageSrc =
+    process.env.NODE_ENV === "development"
+      ? "https://dummyimage.com/450x650&text=Dev+Environment+Placeholder"
+      : "/personal-img.jpg";
+
   return (
     <div className="grid h-screen place-items-center">
       <div className="grid w-full max-w-6xl grid-cols-1 gap-8 px-4 md:grid-cols-2">
