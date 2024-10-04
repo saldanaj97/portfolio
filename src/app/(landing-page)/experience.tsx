@@ -61,11 +61,8 @@ export function Experience() {
         {/* Timeline content */}
         <div className="flex flex-col" ref={ref}>
           {timeline.map((item, index) => (
-            <div className="flex h-64 flex-col space-y-2">
-              <div
-                key={index}
-                className="relative flex h-full flex-col justify-evenly"
-              >
+            <div className="flex h-64 flex-col space-y-2" key={index}>
+              <div className="relative flex h-full flex-col justify-evenly">
                 <h2 className="text-2xl font-semibold">{item.title}</h2>
                 <p className="text-base font-semibold">
                   {item.location && item.location}
