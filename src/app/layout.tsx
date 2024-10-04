@@ -2,9 +2,8 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 
-import { NextUIProvider } from "@nextui-org/react";
 import React from "react";
-import { Navbar } from "~/components/ui/navbar";
+import { Providers } from "./providers";
 
 export const metadata = {
   title: "Juan Saldaña",
@@ -24,11 +23,8 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${GeistSans.variable}`}
     >
-      <body className="flex w-full justify-center px-8">
-        <div className="w-full">
-          <Navbar />
-          <NextUIProvider>{children}</NextUIProvider>
-        </div>
+      <body className="flex w-full justify-center">
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

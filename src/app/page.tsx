@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { AdminBanner } from "~/components/auth/AdminBanner";
+import { ThemeSwitcher } from "~/components/theme/ThemeSwitcher";
 import { createClient } from "~/utils/supabase/server";
 import { Experience } from "./(landing-page)/experience";
 import { Header } from "./(landing-page)/header";
@@ -14,14 +15,15 @@ export default async function HomePage() {
   } = await supabase.auth.getUser();
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-center">
+    <main className="flex w-full max-w-7xl justify-center">
       <div className="w-full">{user ? <AdminBanner user={user} /> : null}</div>
-      <div className="w-full space-y-8">
+      <div className="space-y-8">
         <Header />
         <Skills />
         <Projects />
         <Experience />
       </div>
+      <ThemeSwitcher />
     </main>
   );
 }

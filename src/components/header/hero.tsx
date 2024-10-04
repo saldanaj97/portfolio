@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="flex flex-col justify-center gap-4">
           <div className="space-y-2">
             <h1 className="text-4xl font-semibold md:text-6xl">
-              Hi! I'm Juan{" "}
+              Hi! I'm Juan
               <span role="img" aria-label="waving hand">
                 👋🏼
               </span>

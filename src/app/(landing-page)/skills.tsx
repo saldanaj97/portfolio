@@ -40,7 +40,7 @@ export default function Skills() {
   };
 
   return (
-    <div className="flex h-full w-full flex-row justify-center gap-8">
+    <div className="flex w-full flex-row justify-center gap-8">
       <div className="flex flex-col justify-between">
         <IconComponent icon={FaReact} label="Javascript Projects" count="20+" />
         <IconComponent icon={MdWorkHistory} label="Past Clients" count="5+" />

@@ -119,7 +119,7 @@ export const Projects = () => {
   ];
 
   return (
-    <div className="w-full space-y-4 overflow-hidden">
+    <div className="w-full max-w-7xl space-y-4 overflow-hidden">
       <h1 className="text-5xl font-semibold">My Expertise Includes:</h1>
       <h2 className="text-2xl text-gray-500">
         With a strong focus on implementing visually appealing and highly

@@ -1,11 +1,12 @@
 "use client";
 import { Button, ButtonGroup } from "@nextui-org/button";
 import Link from "next/link";
+import { ThemeSwitcher } from "../theme/ThemeSwitcher";
 import { LocalTimeComponent } from "./local-time";
 
 export function Navbar() {
   return (
-    <header className="hidden w-full grid-cols-3 items-center py-2 md:grid">
+    <div className="hidden w-full grid-cols-3 items-center py-2 md:grid">
       <div className="justify-self-start">
         <h1 className="text-2xl font-bold">
           <Link href="/">Juan Saldaña</Link>
@@ -25,9 +26,10 @@ export function Navbar() {
         </ButtonGroup>
       </nav>
       <div className="flex flex-row gap-4 justify-self-end">
+        <ThemeSwitcher />
         <LocalTimeComponent />
         <Button color="primary">Get a Quote</Button>
       </div>
-    </header>
+    </div>
   );
 }
