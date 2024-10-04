@@ -33,7 +33,7 @@ export function ProjectSlider({ projects }: { projects: ProjectProps[] }) {
           src={
             project.screenshot !== ""
               ? project.screenshot
-              : "https://dummyimage.com/300x200"
+              : "https://dummyimage.com/300x200&text=Dev+Environment+Placeholder"
           }
         />
       </CardBody>
