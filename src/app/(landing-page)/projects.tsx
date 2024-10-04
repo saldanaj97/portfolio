@@ -129,7 +129,7 @@ export const Projects = () => {
         scalable solutions, allowing me to provide high-quality work more
         quickly and effectively to clients.
       </h2>
-      <div className="hide-scrollbar w-full space-y-8 overflow-x-auto pb-4">
+      <div className="hide-scrollbar w-full space-y-8 overflow-x-auto py-4">
         <div className="flex flex-col">
           <div className="flex w-full flex-row justify-between">
             <h2 className="text-2xl font-semibold">Portfolio Websites</h2>

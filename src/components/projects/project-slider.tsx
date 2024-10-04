@@ -19,7 +19,7 @@ export function ProjectSlider({ projects }: { projects: ProjectProps[] }) {
               key={index}
               className="rounded-full bg-primary px-2 py-1 text-center"
             >
-              <p className="text-xs font-normal text-foreground-50">
+              <p className="text-xs font-semibold text-foreground">
                 {language}
               </p>
             </div>
