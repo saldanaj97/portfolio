@@ -1,4 +1,9 @@
 import { Button, Image } from "@nextui-org/react";
+import {
+  BlogButton,
+  ContactMeButton,
+  ProjectsButton,
+} from "~/components/ui/nav-buttons";
 
 const Hero = () => {
   return (
@@ -35,6 +40,9 @@ const Hero = () => {
 export function Header() {
   return (
     <div className="flex h-screen w-full flex-col">
+      <ContactMeButton />
+      <ProjectsButton />
+      <BlogButton />
       <Hero />
     </div>
   );

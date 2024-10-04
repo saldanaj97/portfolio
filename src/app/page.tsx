@@ -17,13 +17,13 @@ export default async function HomePage() {
   return (
     <main className="flex w-full max-w-7xl justify-center">
       <div className="w-full">{user ? <AdminBanner user={user} /> : null}</div>
+      <ThemeSwitcher />
       <div className="space-y-8">
         <Header />
         <Skills />
         <Projects />
         <Experience />
       </div>
-      <ThemeSwitcher />
     </main>
   );
 }
