@@ -15,7 +15,7 @@ const Hero = () => {
     <div className="grid h-screen place-items-center">
       <div className="grid w-full max-w-6xl grid-cols-1 gap-8 px-4 md:grid-cols-2">
         <div className="flex h-full w-full items-center justify-center">
-          <Image src="/personal-img.jpg" alt="personal-photo" />
+          <Image src={imageSrc} alt="personal-photo" />
         </div>
         <div className="flex flex-col justify-center gap-4">
           <div className="space-y-2">
