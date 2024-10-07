@@ -1,4 +1,7 @@
+"use client";
+
 import { Checkbox, CheckboxGroup } from "@nextui-org/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { AiOutlineMail } from "react-icons/ai";
 import { CiLinkedin } from "react-icons/ci";
 import { FiPhoneCall } from "react-icons/fi";
@@ -136,11 +139,19 @@ export default function ContactMe() {
   };
 
   return (
-    <div className="flex flex-row justify-center">
-      <div className="flex w-4/5 max-w-7xl rounded-xl">
-        <Information />
-        <ContactForm />
-      </div>
-    </div>
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <div className="flex flex-row justify-center">
+          <div className="flex w-4/5 max-w-7xl rounded-xl">
+            <Information />
+            <ContactForm />
+          </div>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 }

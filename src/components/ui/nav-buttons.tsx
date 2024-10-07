@@ -14,7 +14,7 @@ export const ContactMeButton = () => {
 export const BlogButton = () => {
   return (
     <Link
-      href="/contact-me"
+      href="/blog"
       className="absolute left-0 top-1/2 z-50 rounded-lg px-4 py-2"
     >
       <Button>Blog</Button>
