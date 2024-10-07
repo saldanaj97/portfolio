@@ -1,5 +1,6 @@
-import { Button, Image } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 import { AnimatePresence } from "framer-motion";
+import { HeroButtons } from "~/components/heading/buttons";
 import { BlogButton, ContactMeButton } from "~/components/ui/nav-buttons";
 
 const Hero = () => {
@@ -29,10 +30,7 @@ const Hero = () => {
               utilize Python for data and science-driven applications.
             </h2>
           </div>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Button color="primary">Let's Work Together</Button>
-            <Button>View Projects</Button>
-          </div>
+          <HeroButtons />
         </div>
       </div>
     </div>
