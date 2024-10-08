@@ -1,16 +1,31 @@
 "use client";
 
 import { Button } from "@nextui-org/react";
+import { AnimatePresence, motion } from "framer-motion";
 
 // TODO - Make sure each of the buttons function correctly
 //          - [ ] Contact Me Button (link to ?)
 //          - [ ] Projects Button (link to Projects section below)
 
-export const HeroButtons = () => {
+export const HeroButtons = ({ isPresent }: { isPresent: boolean }) => {
   return (
-    <div className="flex flex-col gap-4 sm:flex-row">
-      <Button color="primary">Let's Work Together</Button>
-      <Button>View Projects</Button>
-    </div>
+    <AnimatePresence>
+      {isPresent && (
+        <motion.div
+          className="flex flex-col gap-4 sm:flex-row"
+          key="hero-buttons"
+          initial={{ opacity: 0, transform: "translateY(500%)" }}
+          animate={{
+            opacity: 1,
+            transition: { delay: 0.5 },
+            transform: "translateY(0%)",
+          }}
+          exit={{ opacity: 0 }}
+        >
+          <Button color="primary">Let's Work Together</Button>
+          <Button>View Projects</Button>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
