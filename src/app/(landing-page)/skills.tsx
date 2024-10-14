@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import React from "react";
 import { FaReact } from "react-icons/fa";
 import { HiOutlineRocketLaunch } from "react-icons/hi2";
@@ -12,7 +15,7 @@ interface IconComponentProps {
 
 export default function Skills() {
   const SectionHeadings: React.FC = () => (
-    <div className="flex w-1/3 flex-col space-y-2 text-center">
+    <div className="flex w-1/3 flex-col justify-center space-y-2 text-center">
       <h1 className="text-2xl font-semibold md:text-5xl">
         Experienced Across Multiple Stacks and Technologies
       </h1>
@@ -31,37 +34,116 @@ export default function Skills() {
     count,
   }) => {
     return (
-      <div className="flex flex-col items-center justify-center rounded p-4">
-        <Icon size={64} className="text-blue-500" />
-        <h2 className="text-2xl font-bold">{count}</h2>
-        <p>{label}</p>
-      </div>
+      <>
+        <motion.div className="flex flex-col items-center justify-center rounded p-4">
+          <Icon size={64} className="text-blue-500" />
+          <h2 className="text-2xl font-bold">{count}</h2>
+          <p>{label}</p>
+        </motion.div>
+      </>
     );
   };
-
   return (
-    <div className="flex w-full flex-row justify-center gap-8">
-      <div className="flex flex-col justify-between">
-        <div className="flex">
-          <IconComponent
-            icon={FaReact}
-            label="Javascript Projects"
-            count="20+"
-          />
-        </div>
-        <IconComponent icon={MdWorkHistory} label="Past Clients" count="5+" />
-      </div>
+    <>
+      <motion.div className="flex h-screen w-full flex-row justify-center gap-8 p-8">
+        {/* Left Icon Column */}
+        <motion.div className="flex flex-col justify-between">
+          <motion.div
+            className="flex"
+            initial={{
+              opacity: 0,
+              transform: "translateX(-500%) translateY(-100%)",
+            }}
+            animate={{
+              opacity: 1,
+              transition: { delay: 0.5, duration: 1 },
+              transform: "translateY(0%)",
+            }}
+            exit={{ opacity: 0 }}
+          >
+            <IconComponent
+              icon={FaReact}
+              label="Javascript Projects"
+              count="20+"
+            />
+          </motion.div>
+          <motion.div
+            initial={{
+              opacity: 0,
+              transform: "translateX(-500%) translateY(100%)",
+            }}
+            animate={{
+              opacity: 1,
+              transition: { delay: 0.5, duration: 1 },
+              transform: "translateY(0%)",
+            }}
+            exit={{ opacity: 0 }}
+          >
+            <IconComponent
+              icon={MdWorkHistory}
+              label="Past Clients"
+              count="5+"
+            />
+          </motion.div>
+        </motion.div>
 
-      <SectionHeadings />
+        {/* Middle Icon Column */}
+        <motion.div
+          className="flex flex-col items-center justify-center"
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+            transition: { delay: 0.5, duration: 1 },
+            transform: "translateY(0%)",
+          }}
+          exit={{ opacity: 0 }}
+        >
+          <SectionHeadings />
+        </motion.div>
 
-      <div className="flex flex-col justify-between">
-        <IconComponent
-          icon={HiOutlineRocketLaunch}
-          label="Deployed Projects"
-          count="10+"
-        />
-        <IconComponent icon={SiAlwaysdata} label="Data Projects" count="5+" />
-      </div>
-    </div>
+        {/* Right Icon Column */}
+        <motion.div className="flex flex-col justify-between">
+          <motion.div
+            className="flex flex-col justify-between"
+            initial={{
+              opacity: 0,
+              transform: "translateX(500%) translateY(-100%)",
+            }}
+            animate={{
+              opacity: 1,
+              transition: { delay: 0.5, duration: 1 },
+              transform: "translateY(0%)",
+            }}
+            exit={{ opacity: 0 }}
+          >
+            <IconComponent
+              icon={HiOutlineRocketLaunch}
+              label="Deployed Projects"
+              count="10+"
+            />
+          </motion.div>
+          <motion.div
+            initial={{
+              opacity: 0,
+              transform: "translateX(500%) translateY(100%)",
+            }}
+            animate={{
+              opacity: 1,
+              transition: { delay: 0.5, duration: 1 },
+              transform: "translateY(0%)",
+            }}
+            exit={{ opacity: 0 }}
+          >
+            <IconComponent
+              icon={SiAlwaysdata}
+              label="Data Projects"
+              count="5+"
+            />
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </>
   );
 }
