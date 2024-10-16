@@ -119,38 +119,44 @@ export const Projects = () => {
   ];
 
   return (
-    <div className="w-full max-w-7xl space-y-4 overflow-hidden">
-      <h1 className="text-5xl font-semibold">My Expertise Includes:</h1>
-      <h2 className="text-2xl text-gray-500">
-        With a strong focus on implementing visually appealing and highly
-        functional designs, my development experience has exposed me to a wide
-        range of modern web technologies and frameworks. This expertise enables
-        me to deliver seamless user experiences through efficient, secure, and
-        scalable solutions, allowing me to provide high-quality work more
-        quickly and effectively to clients.
-      </h2>
-      <div className="hide-scrollbar w-full space-y-8 overflow-x-auto py-4">
-        <div className="flex flex-col">
-          <div className="flex w-full flex-row justify-between">
-            <h2 className="text-2xl font-semibold">Portfolio Websites</h2>
+    <div className="w-full max-w-7xl space-y-8 overflow-hidden px-16">
+      <div className="flex flex-col space-y-4">
+        <h1 className="text-5xl font-semibold">My Expertise Includes:</h1>
+        <h2 className="text-2xl text-gray-500">
+          With a strong focus on implementing visually appealing and highly
+          functional designs, my development experience has exposed me to a wide
+          range of modern web technologies and frameworks. This expertise
+          enables me to deliver seamless user experiences through efficient,
+          secure, and scalable solutions, allowing me to provide high-quality
+          work more quickly and effectively to clients.
+        </h2>
+      </div>
+
+      <div>
+        <h2 className="text-2xl font-semibold">Portfolio Websites</h2>
+        <div className="hide-scrollbar w-full overflow-x-auto">
+          <div className="flex flex-col">
+            <div className="flex w-full flex-row justify-between"></div>
+            <ProjectSlider projects={portfolioProjects} />
           </div>
-          <ProjectSlider projects={portfolioProjects} />
         </div>
 
-        <div className="flex flex-col">
-          <div className="flex w-full flex-row justify-between">
-            <h2 className="text-2xl font-semibold">Landing Pages</h2>
+        <h2 className="text-2xl font-semibold">Landing Pages</h2>
+        <div className="hide-scrollbar w-full overflow-x-auto">
+          <div className="flex flex-col">
+            <div className="flex w-full flex-row justify-between"></div>
+            <ProjectSlider projects={LandingPageProjects} />
           </div>
-          <ProjectSlider projects={LandingPageProjects} />
         </div>
 
-        <div className="flex flex-col">
-          <div className="flex w-full flex-row justify-between">
-            <h2 className="text-2xl font-semibold">
-              E-commerce & Other Web Development
-            </h2>
+        <h2 className="text-2xl font-semibold">
+          E-commerce & Other Web Development
+        </h2>
+        <div className="hide-scrollbar w-full overflow-x-auto">
+          <div className="flex flex-col">
+            <div className="flex w-full flex-row justify-between"></div>
+            <ProjectSlider projects={ecommerceProjects} />
           </div>
-          <ProjectSlider projects={ecommerceProjects} />
         </div>
       </div>
     </div>
