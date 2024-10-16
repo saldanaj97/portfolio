@@ -20,7 +20,10 @@ export function ThemeSwitcher() {
   };
 
   return (
-    <button onClick={toggleTheme} className="fixed right-6 top-4 px-3 py-5">
+    <button
+      onClick={toggleTheme}
+      className="fixed right-6 top-4 z-50 px-3 py-5"
+    >
       {theme === "light" ? (
         <MdDarkMode size={32} color="#000" />
       ) : (
