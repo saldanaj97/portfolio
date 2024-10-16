@@ -49,13 +49,13 @@ export function Experience() {
   });
 
   return (
-    <>
+    <div className="px-16">
       <h1 className="text-5xl font-semibold">Education and Experience</h1>
-      <div className="flex flex-row space-x-8">
+      <div className="flex flex-row space-x-6">
         {/* Progress line */}
         <motion.div
           style={{ scaleY: scrollYProgress }}
-          className="w-2 origin-top bg-primary"
+          className="ml-4 mt-4 w-2 origin-top bg-primary"
         />
 
         {/* Timeline content */}
@@ -72,13 +72,13 @@ export function Experience() {
                 </p>
 
                 {/* Timeline Dot */}
-                <div
+                {/* <div
                   className="absolute left-[-32px] z-50 h-6 w-6 rounded-full bg-primary"
                   style={{
                     top: "50%",
                     transform: "translate(-50%, -100%)",
                   }}
-                />
+                /> */}
 
                 <p className="text-lg font-semibold">{item.date}</p>
               </div>
@@ -87,6 +87,6 @@ export function Experience() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
