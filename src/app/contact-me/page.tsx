@@ -1,11 +1,11 @@
 "use client";
 
 import { Checkbox, CheckboxGroup } from "@nextui-org/react";
-import { AnimatePresence, motion } from "framer-motion";
 import { AiOutlineMail } from "react-icons/ai";
 import { CiLinkedin } from "react-icons/ci";
 import { FiPhoneCall } from "react-icons/fi";
 import { MdOutlinePersonPinCircle } from "react-icons/md";
+import { ThemeSwitcher } from "~/components/theme/ThemeSwitcher";
 
 type InformationSectionCopywritingType = {
   icon: IconType;
@@ -48,9 +48,7 @@ export default function ContactMe() {
     },
   ];
 
-  const IconComponent: React.FC<{ icon: IconType | null }> = ({
-    icon: Icon,
-  }) => {
+  const IconComponent: React.FC<{ icon: IconType }> = ({ icon: Icon }) => {
     return Icon ? (
       <div className="flex flex-col">
         <Icon size={24} className="" />
@@ -60,9 +58,9 @@ export default function ContactMe() {
 
   const Information = () => {
     return (
-      <div className="flex h-full w-2/5 flex-col justify-center gap-y-4 rounded-s-xl bg-white px-12">
+      <div className="flex w-full flex-col justify-center gap-y-4 rounded-t-xl bg-white px-6 py-8 lg:w-2/5 lg:rounded-l-xl lg:rounded-tr-none lg:px-12 lg:py-16">
         {informationSectionCopywriting.map((section) => (
-          <div className="flex flex-col" key={section.title}>
+          <div className="flex flex-col text-black" key={section.title}>
             <div className="flex flex-row items-start space-x-2">
               <IconComponent icon={section.icon} />
               <div className="flex flex-col">
@@ -81,18 +79,18 @@ export default function ContactMe() {
 
   const ContactForm = () => {
     return (
-      <div className="flex w-3/5 flex-col justify-center rounded-xl bg-primary px-12 py-16">
-        <div className="flex flex-col justify-evenly space-y-8">
-          {/* Headers */}
-          <h1 className="text-4xl font-semibold">
-            Looking for a developer or need a website built? Contact me below.
-          </h1>
-          <h2 className="text-xl">
-            Tell me more about yourself or your company and what you have in
-            mind.
-          </h2>
+      <div className="flex w-full flex-col justify-center rounded-b-xl bg-primary px-6 py-8 lg:w-3/5 lg:rounded-r-xl lg:rounded-bl-none lg:px-12 lg:py-16">
+        <div className="flex h-full flex-col justify-between space-y-8">
+          <div>
+            <h1 className="text-2xl font-semibold lg:text-4xl">
+              Looking for a developer or need a website built? Contact me below.
+            </h1>
+            <h2 className="mt-4 text-lg lg:text-xl">
+              Tell me more about yourself or your company and what you have in
+              mind.
+            </h2>
+          </div>
 
-          {/* Form */}
           <form className="flex flex-col space-y-8">
             <input
               type="text"
@@ -139,19 +137,14 @@ export default function ContactMe() {
   };
 
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        <div className="flex flex-row justify-center">
-          <div className="flex w-4/5 max-w-7xl rounded-xl">
-            <Information />
-            <ContactForm />
-          </div>
+    <>
+      <ThemeSwitcher />
+      <div className="flex min-h-screen items-center justify-center p-4">
+        <div className="flex w-full max-w-5xl flex-col items-stretch rounded-xl shadow-lg lg:flex-row">
+          <Information />
+          <ContactForm />
         </div>
-      </motion.div>
-    </AnimatePresence>
+      </div>
+    </>
   );
 }
