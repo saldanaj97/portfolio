@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { AdminBanner } from "~/components/auth/AdminBanner";
 import { ThemeSwitcher } from "~/components/theme/ThemeSwitcher";
 import { createClient } from "~/utils/supabase/server";
+import CallToAction from "./(landing-page)/cta";
 import { Experience } from "./(landing-page)/experience";
 import { Header } from "./(landing-page)/header";
 import { Projects } from "./(landing-page)/projects";
@@ -23,6 +24,7 @@ export default async function HomePage() {
         <Skills />
         <Projects />
         <Experience />
+        <CallToAction />
       </div>
     </main>
   );
