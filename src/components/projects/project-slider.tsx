@@ -41,7 +41,7 @@ export function ProjectSlider({ projects }: { projects: ProjectProps[] }) {
   );
 
   return (
-    <div className="flex space-x-4 p-4">
+    <div className="flex justify-start space-x-4 py-4">
       {projects.map((project, index) => (
         <ProjectCard key={index} project={project} />
       ))}
