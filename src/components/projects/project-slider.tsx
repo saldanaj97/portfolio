@@ -8,6 +8,9 @@ interface ProjectProps {
 }
 
 export function ProjectSlider({ projects }: { projects: ProjectProps[] }) {
+  const screenshotPlaceholder =
+    "https://dummyimage.com/300x200&text=Dev+Environment+Placeholder";
+
   const ProjectCard = ({ project }: { project: ProjectProps }) => (
     <Card className="w-[300px] flex-shrink-0 p-2">
       <CardHeader className="flex-col items-start px-4 pb-0 pt-2">
@@ -33,7 +36,7 @@ export function ProjectSlider({ projects }: { projects: ProjectProps[] }) {
           src={
             project.screenshot !== ""
               ? project.screenshot
-              : "https://dummyimage.com/300x200&text=Dev+Environment+Placeholder"
+              : screenshotPlaceholder
           }
         />
       </CardBody>

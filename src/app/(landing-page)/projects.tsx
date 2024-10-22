@@ -1,5 +1,8 @@
-import { Button } from "@nextui-org/button";
-import { FaCirclePlus } from "react-icons/fa6";
+import {
+  AddProjectButton,
+  DeleteProjectButton,
+  EditProjectButton,
+} from "~/components/projects/project-buttons";
 import { ProjectSlider } from "~/components/projects/project-slider";
 
 type Project = {
@@ -144,15 +147,6 @@ const Sections = [
 ];
 
 export const Projects = () => {
-  const AddProjectButton = () => {
-    return (
-      <Button className="flex h-6 w-fit flex-row items-center justify-center rounded-full bg-primary px-2 py-2">
-        <FaCirclePlus size={16} color="primary" />
-        <p className="text-small font-semibold">Add Project</p>
-      </Button>
-    );
-  };
-
   const ProjectSliderContainer = () => {
     return (
       <div className="space-y-8">
@@ -160,7 +154,11 @@ export const Projects = () => {
           <div key={index}>
             <div className="flex flex-row items-center justify-between">
               <h2 className="text-2xl font-semibold">{section.title}</h2>
-              <AddProjectButton />
+              <div className="flex flex-row space-x-2">
+                <AddProjectButton />
+                <EditProjectButton />
+                <DeleteProjectButton />
+              </div>
             </div>
             <div className="hide-scrollbar w-full overflow-x-auto">
               <div className="flex flex-col">
@@ -175,8 +173,8 @@ export const Projects = () => {
 
   return (
     <div className="w-full max-w-7xl space-y-8 overflow-hidden px-16">
+      {/* Section Header */}
       <div className="flex flex-col space-y-4">
-        {/* Section Header */}
         <h1 className="text-5xl font-semibold">My Expertise Includes:</h1>
         <h2 className="text-2xl text-gray-500">
           With a strong focus on implementing visually appealing and highly
@@ -188,8 +186,8 @@ export const Projects = () => {
         </h2>
       </div>
 
+      {/* Portfolio  */}
       <div className="flex flex-col">
-        {/* Portfolio  */}
         <ProjectSliderContainer />
       </div>
     </div>
