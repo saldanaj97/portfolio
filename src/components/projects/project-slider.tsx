@@ -1,17 +1,11 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
+import { Card, CardBody, CardHeader } from "@nextui-org/react";
+import { Project } from "./types";
 
-interface ProjectProps {
-  title: string;
-  description: string;
-  screenshot: string;
-  stack: string[];
-}
-
-export function ProjectSlider({ projects }: { projects: ProjectProps[] }) {
+export function ProjectSlider({ projects }: { projects: Project[] }) {
   const screenshotPlaceholder =
     "https://dummyimage.com/300x200&text=Dev+Environment+Placeholder";
 
-  const ProjectCard = ({ project }: { project: ProjectProps }) => (
+  const ProjectCard = ({ project }: { project: Project }) => (
     <Card className="w-[300px] flex-shrink-0 p-2">
       <CardHeader className="flex-col items-start px-4 pb-0 pt-2">
         <small className="text-default-500">{project.description}</small>
@@ -34,7 +28,7 @@ export function ProjectSlider({ projects }: { projects: ProjectProps[] }) {
           alt="Card background"
           className="h-[200px] w-full rounded-xl object-cover"
           src={
-            project.screenshot !== ""
+            process.env.NODE_ENV !== "development"
               ? project.screenshot
               : screenshotPlaceholder
           }

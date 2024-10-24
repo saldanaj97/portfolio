@@ -1,152 +1,41 @@
+import { MaintenancePlaceholder } from "~/components/maintenance";
 import {
   AddProjectButton,
   DeleteProjectButton,
   EditProjectButton,
 } from "~/components/projects/project-buttons";
 import { ProjectSlider } from "~/components/projects/project-slider";
-
-type Project = {
-  title: string;
-  description: string;
-  screenshot: string;
-  stack: string[];
-};
+import { Project } from "~/components/projects/types";
+import { supabase } from "../(auth)/actions";
 
 type Section = {
   title: string;
   projects: Project[];
 };
 
-const FullStackApplications = [
-  {
-    title: "Portfolio 1",
-    description: "This is a description of Portfolio 1",
-    screenshot: "",
-    stack: ["React", "Next.js", "TailwindCSS"],
-  },
-  {
-    title: "Portfolio 2",
-    description: "This is a description of Portfolio 2",
-    screenshot: "",
-    stack: ["Python", "Django", "TailwindCSS"],
-  },
-  {
-    title: "Portfolio 3",
-    description: "This is a description of Portfolio 3",
-    screenshot: "",
-    stack: ["HTML", "CSS", "JavaScript"],
-  },
-  {
-    title: "Portfolio 4",
-    description: "This is a description of Portfolio 4",
-    screenshot: "",
-    stack: ["React", "Next.js", "TailwindCSS"],
-  },
-  {
-    title: "Portfolio 5",
-    description: "This is a description of Portfolio 5",
-    screenshot: "",
-    stack: ["Python", "Django", "TailwindCSS"],
-  },
-  {
-    title: "Portfolio 6",
-    description: "This is a description of Portfolio 6",
-    screenshot: "",
-    stack: ["HTML", "CSS", "JavaScript"],
-  },
-];
+export async function Projects() {
+  const { data: projects, error } = await supabase.from("projects").select("*");
 
-const UIProjects = [
-  {
-    title: "Landing Page 1",
-    description: "This is a description of Landing Page 1",
-    screenshot: "",
-    stack: ["React", "Next.js", "TailwindCSS"],
-  },
-  {
-    title: "Landing Page 2",
-    description: "This is a description of Landing Page 2",
-    screenshot: "",
-    stack: ["Python", "Django", "TailwindCSS"],
-  },
-  {
-    title: "Landing Page 3",
-    description: "This is a description of Landing Page 3",
-    screenshot: "",
-    stack: ["HTML", "CSS", "JavaScript"],
-  },
-  {
-    title: "Landing Page 4",
-    description: "This is a description of Landing Page 4",
-    screenshot: "",
-    stack: ["React", "Next.js", "TailwindCSS"],
-  },
-  {
-    title: "Landing Page 5",
-    description: "This is a description of Landing Page 5",
-    screenshot: "",
-    stack: ["Python", "Django", "TailwindCSS"],
-  },
-  {
-    title: "Landing Page 6",
-    description: "This is a description of Landing Page 6",
-    screenshot: "",
-    stack: ["HTML", "CSS", "JavaScript"],
-  },
-];
+  if (error) {
+    console.log(error);
+    return <MaintenancePlaceholder />;
+  }
 
-const OtherProjects = [
-  {
-    title: "E-commerce 1",
-    description: "This is a description of E-commerce 1",
-    screenshot: "",
-    stack: ["React", "Next.js", "TailwindCSS"],
-  },
-  {
-    title: "E-commerce 2",
-    description: "This is a description of E-commerce 2",
-    screenshot: "",
-    stack: ["Python", "Django", "TailwindCSS"],
-  },
-  {
-    title: "E-commerce 3",
-    description: "This is a description of E-commerce 3",
-    screenshot: "",
-    stack: ["HTML", "CSS", "JavaScript"],
-  },
-  {
-    title: "E-commerce 4",
-    description: "This is a description of E-commerce 4",
-    screenshot: "",
-    stack: ["React", "Next.js", "TailwindCSS"],
-  },
-  {
-    title: "E-commerce 5",
-    description: "This is a description of E-commerce 5",
-    screenshot: "",
-    stack: ["Python", "Django", "TailwindCSS"],
-  },
-  {
-    title: "E-commerce 6",
-    description: "This is a description of E-commerce 6",
-    screenshot: "",
-    stack: ["HTML", "CSS", "JavaScript"],
-  },
-];
+  const Sections: Section[] = [
+    {
+      title: "UI/UX",
+      projects: projects.filter((project) => project.category === "ui"),
+    },
+    {
+      title: "Fullstack Development",
+      projects: projects.filter((project) => project.category === "fullstack"),
+    },
+    {
+      title: "Other Projects",
+      projects: projects.filter((project) => project.category === "other"),
+    },
+  ];
 
-const Sections = [
-  {
-    title: "Full Stack Applications",
-    projects: FullStackApplications,
-  },
-  {
-    title: "Landing Pages, E-Commerce, Other UI",
-    projects: UIProjects,
-  },
-  { title: "Other Projects", projects: OtherProjects },
-];
-
-export const Projects = () => {
   const ProjectSliderContainer = () => {
     return (
       <div className="space-y-8">
@@ -186,10 +75,14 @@ export const Projects = () => {
         </h2>
       </div>
 
-      {/* Portfolio  */}
+      {/* Portfolio Projects */}
       <div className="flex flex-col">
-        <ProjectSliderContainer />
+        {projects !== null ? (
+          <ProjectSliderContainer />
+        ) : (
+          <MaintenancePlaceholder />
+        )}
       </div>
     </div>
   );
-};
+}
