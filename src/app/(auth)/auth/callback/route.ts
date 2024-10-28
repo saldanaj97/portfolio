@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "~/utils/supabase/server";
 
-// TODO: Change line 11 to update to next 15
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get("code");

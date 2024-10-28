@@ -10,13 +10,14 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
+
 import {
   AddProjectButton,
   DeleteProjectButton,
   EditProjectButton,
 } from "./project-buttons";
 
-export default function ProjectButtons() {
+export const AdminViewProjectModal = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -26,6 +27,7 @@ export default function ProjectButtons() {
         <EditProjectButton onOpen={onOpen} />
         <DeleteProjectButton onOpen={onOpen} />
       </div>
+
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
         <ModalContent>
           {(onClose) => (
@@ -71,4 +73,4 @@ export default function ProjectButtons() {
       </Modal>
     </>
   );
-}
+};

@@ -28,7 +28,7 @@ export default async function RootLayout({
       suppressHydrationWarning
       className={`${GeistSans.variable}`}
     >
-      <div className="w-full">{user ? <AdminBanner user={user} /> : null}</div>
+      <div className="w-full">{user && <AdminBanner user={user} />}</div>
       <body className="flex w-full justify-center">
         <Providers>{children}</Providers>
       </body>

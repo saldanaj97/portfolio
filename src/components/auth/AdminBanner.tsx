@@ -1,5 +1,5 @@
-import { User } from '@supabase/supabase-js';
-import SignOutButton from './SignOutButton';
+import { User } from "@supabase/supabase-js";
+import SignOutButton from "./SignOutButton";
 
 export function AdminBanner({ user }: { user: User }) {
   if (!user) return null;
