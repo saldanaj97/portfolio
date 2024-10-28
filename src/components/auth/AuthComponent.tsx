@@ -8,7 +8,7 @@ import { createClient } from "~/utils/supabase/server";
 // import ProfileButton from "./ProfileButton";
 
 export default async function AuthComponent() {
-  const supabase = createClient(cookies());
+  const supabase = createClient(await cookies());
 
   const {
     data: { user },

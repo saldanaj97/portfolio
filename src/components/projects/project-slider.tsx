@@ -1,4 +1,7 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/react";
+"use client";
+
+import { Card, CardBody, CardHeader, Chip } from "@nextui-org/react";
+
 import { Project } from "./types";
 
 export function ProjectSlider({ projects }: { projects: Project[] }) {
@@ -12,14 +15,9 @@ export function ProjectSlider({ projects }: { projects: Project[] }) {
         <h4 className="text-large font-bold">{project.title}</h4>
         <div className="mt-2 flex flex-wrap gap-2">
           {project.stack.map((language, index) => (
-            <div
-              key={index}
-              className="rounded-full bg-primary px-2 py-1 text-center"
-            >
-              <p className="text-xs font-semibold text-foreground">
-                {language}
-              </p>
-            </div>
+            <Chip key={index} className="bg-primary">
+              <p className="text-xs text-white">{language}</p>
+            </Chip>
           ))}
         </div>
       </CardHeader>

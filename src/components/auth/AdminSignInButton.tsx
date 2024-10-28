@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Button } from '@nextui-org/button';
-import { redirect, usePathname } from 'next/navigation';
-import { FcGoogle } from 'react-icons/fc';
-import { createClient } from '~/utils/supabase/client';
+import { Button } from "@nextui-org/button";
+import { redirect, usePathname } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
+import { createClient } from "~/utils/supabase/client";
 
 export default function AdminSignInButton() {
   const supabase = createClient();
@@ -11,14 +11,14 @@ export default function AdminSignInButton() {
 
   const handleSignIn = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
+      provider: "google",
       options: {
         redirectTo: `${window.location.origin}/auth/callback?next=${pathname}`,
       },
     });
 
     if (error) {
-      return redirect('/login?message=Could not authenticate user');
+      return redirect("/login?message=Could not authenticate user");
     }
 
     return redirect(`/auth/callback?next=${pathname}`);
