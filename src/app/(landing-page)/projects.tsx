@@ -4,11 +4,7 @@ import { PostgrestError } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
 import { getProjects } from "~/api/projects";
 import { MaintenancePlaceholder } from "~/components/maintenance";
-import {
-  AddProjectButton,
-  DeleteProjectButton,
-  EditProjectButton,
-} from "~/components/projects/project-buttons";
+import ProjectButtons from "~/components/projects/modal";
 import { ProjectSlider } from "~/components/projects/project-slider";
 import { Project } from "~/components/projects/types";
 
@@ -22,14 +18,6 @@ const PORTFOLIO_SECTIONS: Array<{ title: string; category: string }> = [
   { title: "Fullstack Development", category: "fullstack" },
   { title: "Other Projects", category: "other" },
 ];
-
-const ProjectButtons = () => (
-  <div className="flex flex-row space-x-2">
-    <AddProjectButton />
-    <EditProjectButton />
-    <DeleteProjectButton />
-  </div>
-);
 
 const SectionHeader = () => (
   <div className="flex flex-col space-y-4">
