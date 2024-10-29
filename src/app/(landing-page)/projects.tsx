@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { isAdminLoggedIn } from "~/api/admin";
 import { getProjects } from "~/api/projects";
 import { MaintenancePlaceholder } from "~/components/maintenance";
-import { AdminViewProjectModal } from "~/components/projects/ProjectButtons";
+import { AdminViewProjectModal } from "~/components/projects/AdminViewProjectModal";
 import { ProjectSlider } from "~/components/projects/project-slider";
 import { Project } from "~/components/projects/types";
 
