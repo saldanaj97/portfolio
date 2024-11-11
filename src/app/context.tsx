@@ -2,10 +2,12 @@
 
 import { createContext, ReactNode, useState } from "react";
 
+// TODO - Replace all instances and uses of auth with user context
 export const UserContext = createContext({
   user: "",
   setUser: (user: string) => {
-    console.error("UserContext setUser not implemented");
+    // console.log(user);
+    console.log("UserContext setUser not implemented");
   },
 });
 
