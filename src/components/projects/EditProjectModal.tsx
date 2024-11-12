@@ -1,13 +1,16 @@
+"use client";
+
 import { Button } from "@nextui-org/button";
-import { Input } from "@nextui-org/input";
 import {
   ModalBody,
   ModalContent,
   ModalFooter,
   ModalHeader,
 } from "@nextui-org/react";
+import { EditProjectForm } from "./forms";
+import { Project } from "./types";
 
-export const EditProjectModal = () => {
+export const EditProjectModal = ({ project }: { project: Project }) => {
   return (
     <ModalContent>
       {(onClose) => (
@@ -16,34 +19,11 @@ export const EditProjectModal = () => {
             Edit a project
           </ModalHeader>
           <ModalBody>
-            <Input
-              autoFocus
-              label="Name"
-              placeholder="Project name"
-              variant="bordered"
-            />
-            <Input
-              label="Description"
-              placeholder="Project description"
-              variant="bordered"
-            />
-            <Input
-              label="Stack"
-              placeholder="Comma separated list of languages"
-              variant="bordered"
-            />
-            <Input
-              label="Cover Image"
-              placeholder="URL to project cover image"
-              variant="bordered"
-            />
+            <EditProjectForm onClose={onClose} project={project} />
           </ModalBody>
           <ModalFooter>
             <Button color="danger" variant="flat" onPress={onClose}>
               Close
-            </Button>
-            <Button color="primary" onPress={onClose}>
-              Finished
             </Button>
           </ModalFooter>
         </>

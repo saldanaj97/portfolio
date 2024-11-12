@@ -55,7 +55,10 @@ const ProjectSliderContainer = ({
             {isAdminView && <AdminViewProjectModal />}
           </div>
           <div className="hide-scrollbar w-full overflow-x-auto">
-            <ProjectSlider projects={section.projects} />
+            <ProjectSlider
+              projects={section.projects}
+              isAdminView={isAdminView}
+            />
           </div>
         </div>
       ))}

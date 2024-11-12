@@ -1,12 +1,36 @@
 "use client";
 
-import { Card, CardBody, CardHeader, Chip } from "@nextui-org/react";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Chip,
+  Modal,
+  useDisclosure,
+} from "@nextui-org/react";
+import { useState } from "react";
 
+import { EditProjectModal } from "./EditProjectModal";
+import { DeleteProjectButton, EditProjectButton } from "./project-buttons";
 import { Project } from "./types";
 
-export function ProjectSlider({ projects }: { projects: Project[] }) {
+export function ProjectSlider({
+  projects,
+  isAdminView,
+}: {
+  projects: Project[];
+  isAdminView: boolean;
+}) {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const screenshotPlaceholder =
     "https://dummyimage.com/300x200&text=Dev+Environment+Placeholder";
+
+  const handleEditClick = (project: Project) => {
+    setSelectedProject(project);
+    onOpen();
+  };
 
   const ProjectCard = ({ project }: { project: Project }) => (
     <Card className="w-[300px] flex-shrink-0 p-2">
@@ -32,14 +56,25 @@ export function ProjectSlider({ projects }: { projects: Project[] }) {
           }
         />
       </CardBody>
+      {isAdminView && (
+        <CardFooter>
+          <EditProjectButton onOpen={() => handleEditClick(project)} />
+          <DeleteProjectButton />
+        </CardFooter>
+      )}
     </Card>
   );
 
   return (
-    <div className="flex justify-start space-x-4 py-4">
-      {projects.map((project, index) => (
-        <ProjectCard key={index} project={project} />
-      ))}
-    </div>
+    <>
+      <div className="flex justify-start space-x-4 py-4">
+        {projects.map((project, index) => (
+          <ProjectCard key={index} project={project} />
+        ))}
+      </div>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
+        {selectedProject && <EditProjectModal project={selectedProject} />}
+      </Modal>
+    </>
   );
 }
