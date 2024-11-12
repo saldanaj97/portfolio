@@ -10,42 +10,39 @@ import {
   DeleteProjectButton,
   EditProjectButton,
 } from "./project-buttons";
-
-type ModalType = "add" | "edit" | null;
+import { ModalType } from "./types";
 
 export const AdminViewProjectModal = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [projectModalToDisplay, setProjectModalToDisplay] =
     useState<ModalType>(null);
 
+  const handleModalToDisplay = (modalType: ModalType) => {
+    setProjectModalToDisplay(modalType);
+  };
+
   return (
     <>
       <div className="flex flex-row space-x-2">
-        <AddProjectButton onOpen={onOpen} />
-        <EditProjectButton onOpen={onOpen} />
-        <DeleteProjectButton onOpen={onOpen} />
+        <AddProjectButton
+          onOpen={() => {
+            handleModalToDisplay("add");
+            onOpen();
+          }}
+        />
+        <EditProjectButton
+          onOpen={() => {
+            handleModalToDisplay("edit");
+            onOpen();
+          }}
+        />
+        <DeleteProjectButton />
       </div>
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
-        {projectModalToDisplay === "add" && (
-          <AddProjectModal
-            setProjectModalToDisplay={() => setProjectModalToDisplay("add")}
-          />
-        )}
-        {projectModalToDisplay === "edit" && (
-          <EditProjectModal
-            setProjectModalToDisplay={() => setProjectModalToDisplay("edit")}
-          />
-        )}
+        {projectModalToDisplay === "add" && <AddProjectModal />}
+        {projectModalToDisplay === "edit" && <EditProjectModal />}
       </Modal>
     </>
   );
 };
-
-// {projectModalToDisplay === "add" && (
-//   <AddProjectModal isOpen={isOpen} onOpenChange={onOpenChange} />
-// )}
-
-// {projectModalToDisplay === "edit" && (
-//   <EditProjectModal isOpen={isOpen} onOpenChange={onOpenChange} />
-// )}

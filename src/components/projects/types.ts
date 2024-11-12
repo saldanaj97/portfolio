@@ -12,4 +12,6 @@ type Project = {
 // Pre-defined Enum for ProjectCategory from supabase db
 type ProjectCategory = "ui" | "fullstack" | "other";
 
-export type { Project, ProjectCategory };
+type ModalType = "add" | "edit" | null;
+
+export type { ModalType, Project, ProjectCategory };

@@ -8,13 +8,10 @@ type ModalType = "add" | "edit" | null;
 interface ProjectButtonProps {
   onOpen: () => void;
   onClick?: (modalType: ModalType) => void;
-  setProjectModalToDisplay?: (modalType: ModalType) => void;
+  handleModalToDisplay?: (modalType: ModalType) => void;
 }
 
-export function AddProjectButton({
-  onOpen,
-  setProjectModalToDisplay,
-}: ProjectButtonProps) {
+export function AddProjectButton({ onOpen }: ProjectButtonProps) {
   return (
     <Button onPress={onOpen}>
       <FaCirclePlus size={18} color="primary" />
@@ -22,20 +19,16 @@ export function AddProjectButton({
   );
 }
 
-export function EditProjectButton({
-  onOpen,
-  setProjectModalToDisplay,
-}: ProjectButtonProps) {
+export function EditProjectButton({ onOpen }: ProjectButtonProps) {
   return (
     <Button onPress={onOpen}>
       <FaRegEdit size={18} color="primary" />
     </Button>
   );
 }
-
-export function DeleteProjectButton({ onOpen }: ProjectButtonProps) {
+export function DeleteProjectButton({}) {
   return (
-    <Button onPress={onOpen}>
+    <Button>
       <MdDelete size={18} color="primary" />
     </Button>
   );
