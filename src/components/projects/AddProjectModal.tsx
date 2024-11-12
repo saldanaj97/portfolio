@@ -1,8 +1,6 @@
 import { Button } from "@nextui-org/button";
-import { Checkbox } from "@nextui-org/checkbox";
 import { Input } from "@nextui-org/input";
 import {
-  Link,
   ModalBody,
   ModalContent,
   ModalFooter,
@@ -20,35 +18,32 @@ export const AddProjectModal = () => {
           <ModalBody>
             <Input
               autoFocus
-              label="Email"
-              placeholder="Enter your email"
+              label="Name"
+              placeholder="Project name"
               variant="bordered"
             />
             <Input
-              label="Password"
-              placeholder="Enter your password"
-              type="password"
+              label="Description"
+              placeholder="Project description"
               variant="bordered"
             />
-            <div className="flex justify-between px-1 py-2">
-              <Checkbox
-                classNames={{
-                  label: "text-small",
-                }}
-              >
-                Remember me
-              </Checkbox>
-              <Link color="primary" href="#" size="sm">
-                Forgot password?
-              </Link>
-            </div>
+            <Input
+              label="Stack"
+              placeholder="Comma separated list of languages"
+              variant="bordered"
+            />
+            <Input
+              label="Cover Image"
+              placeholder="URL to project cover image"
+              variant="bordered"
+            />
           </ModalBody>
           <ModalFooter>
             <Button color="danger" variant="flat" onPress={onClose}>
               Close
             </Button>
             <Button color="primary" onPress={onClose}>
-              Sign in
+              Add
             </Button>
           </ModalFooter>
         </>
