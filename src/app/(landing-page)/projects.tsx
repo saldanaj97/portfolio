@@ -103,11 +103,11 @@ export function Projects() {
   }
 
   return (
-    <div className="w-full max-w-7xl space-y-8 overflow-hidden px-16">
+    <section className="w-full max-w-7xl space-y-8 overflow-hidden px-16">
       <SectionHeader />
       <div className="flex flex-col">
         <ProjectSliderContainer projects={projects} isAdminView={isAdminView} />
       </div>
-    </div>
+    </section>
   );
 }

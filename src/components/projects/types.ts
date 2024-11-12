@@ -1,17 +1,41 @@
+type ModalButtonprops = {
+  onClose: () => void;
+};
+
+type ModalType = "add" | "edit" | null;
+
+type NewProject = {
+  title: string;
+  description: string;
+  stack: string[];
+  screenshot: string;
+  category: string;
+};
+
 type Project = {
-  id: string; // UUID
-  created_at: string; // ISO timestamp with timezone
-  updated_at: string | null; // ISO timestamp without timezone, nullable
+  id: string;
+  created_at: string;
+  updated_at: string | null;
   title: string;
   description: string;
   screenshot: string;
   stack: string[];
-  category: ProjectCategory; // Enum or type for 'public.ProjectCategory'
+  category: ProjectCategory;
 };
 
-// Pre-defined Enum for ProjectCategory from supabase db
+type ProjectButtonProps = {
+  onOpen: () => void;
+  onClick?: (modalType: ModalType) => void;
+  handleModalToDisplay?: (modalType: ModalType) => void;
+};
+
 type ProjectCategory = "ui" | "fullstack" | "other";
 
-type ModalType = "add" | "edit" | null;
-
-export type { ModalType, Project, ProjectCategory };
+export type {
+  ModalButtonprops,
+  ModalType,
+  NewProject,
+  Project,
+  ProjectButtonProps,
+  ProjectCategory,
+};
