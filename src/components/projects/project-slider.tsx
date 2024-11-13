@@ -10,10 +10,10 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { useState } from "react";
-
 import { EditProjectModal } from "./EditProjectModal";
 import { DeleteProjectButton, EditProjectButton } from "./project-buttons";
 import { Project } from "./types";
+import { deleteProject } from "~/app/(landing-page)/actions";
 
 export function ProjectSlider({
   projects,
@@ -31,6 +31,16 @@ export function ProjectSlider({
     setSelectedProject(project);
     onOpen();
   };
+
+  async function handleDeleteClick(project: Project) {
+    if (!project) return;
+    const { error } = await deleteProject(project.id);
+    if (error) {
+      console.error("Error deleting project:", error);
+      return;
+    }
+    console.log("Deleted project: ", project);
+  }
 
   const ProjectCard = ({ project }: { project: Project }) => (
     <Card className="w-[300px] flex-shrink-0 p-2">
@@ -57,9 +67,9 @@ export function ProjectSlider({
         />
       </CardBody>
       {isAdminView && (
-        <CardFooter>
+        <CardFooter className="flex flex-row justify-evenly space-x-2">
           <EditProjectButton onOpen={() => handleEditClick(project)} />
-          <DeleteProjectButton />
+          <DeleteProjectButton onDelete={() => handleDeleteClick(project)} />
         </CardFooter>
       )}
     </Card>

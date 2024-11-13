@@ -24,9 +24,11 @@ type Project = {
 };
 
 type ProjectButtonProps = {
-  onOpen: () => void;
+  onOpen?: () => void;
   onClick?: (modalType: ModalType) => void;
+  onDelete?: () => void;
   handleModalToDisplay?: (modalType: ModalType) => void;
+  handleDeleteClick?: () => void;
 };
 
 type ProjectCategory = "ui" | "fullstack" | "other";

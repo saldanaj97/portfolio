@@ -1,8 +1,9 @@
 import { Button } from "@nextui-org/button";
 import { FaRegEdit } from "react-icons/fa";
 import { FaCirclePlus } from "react-icons/fa6";
-import { MdDelete } from "react-icons/md";
 import { ProjectButtonProps } from "./types";
+import React from "react";
+import { MdDelete } from "react-icons/md";
 
 export function AddProjectButton({ onOpen }: ProjectButtonProps) {
   return (
@@ -19,9 +20,10 @@ export function EditProjectButton({ onOpen }: ProjectButtonProps) {
     </Button>
   );
 }
-export function DeleteProjectButton({}) {
+
+export function DeleteProjectButton({ onDelete }: ProjectButtonProps) {
   return (
-    <Button>
+    <Button onClick={onDelete}>
       <MdDelete size={18} color="primary" />
     </Button>
   );

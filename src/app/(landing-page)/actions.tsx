@@ -15,3 +15,11 @@ export async function editProject(project: Project) {
     .match({ id: project.id });
   return { data, error };
 }
+
+export async function deleteProject(id: string) {
+  const { data, error } = await supabase
+    .from("projects")
+    .delete()
+    .match({ id });
+  return { data, error };
+}
