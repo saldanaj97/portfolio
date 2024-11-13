@@ -1,7 +1,3 @@
-type ModalButtonprops = {
-  onClose: () => void;
-};
-
 type ModalType = "add" | "edit" | null;
 
 type NewProject = {
@@ -34,7 +30,6 @@ type ProjectButtonProps = {
 type ProjectCategory = "ui" | "fullstack" | "other";
 
 export type {
-  ModalButtonprops,
   ModalType,
   NewProject,
   Project,
