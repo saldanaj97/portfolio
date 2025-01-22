@@ -1,12 +1,12 @@
 "use client";
 
+import React from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { CiLinkedin } from "react-icons/ci";
 import { FiPhoneCall } from "react-icons/fi";
 import { MdOutlinePersonPinCircle } from "react-icons/md";
-import { ThemeSwitcher } from "~/components/theme/ThemeSwitcher";
-import React from "react";
 import { ContactForm } from "~/app/contact-me/forms";
+import { ThemeSwitcher } from "~/components/theme/ThemeSwitcher";
 
 type InformationSectionCopywritingType = {
   icon: IconType;
@@ -44,7 +44,7 @@ export default function ContactMe() {
       icon: MdOutlinePersonPinCircle,
       title: "Location",
       description:
-        "I am based in the United States. For in-person meetings, please email me to schedule an appointment.",
+        "I am based in the United States and am available to work remotely or relocate if needed.",
       value: "Dallas, Texas, United States",
     },
   ];
@@ -84,7 +84,8 @@ export default function ContactMe() {
         <div className="flex h-full flex-col justify-between space-y-8">
           <div>
             <h1 className="text-2xl font-semibold lg:text-4xl">
-              Looking for a developer or need a website built? Contact me below.
+              Looking for a full time developer or need a hand for a project?
+              Contact me below.
             </h1>
             <h2 className="mt-4 text-lg lg:text-xl">
               Tell me more about yourself or your company and what you have in
