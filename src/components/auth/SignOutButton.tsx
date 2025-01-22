@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Button } from '@nextui-org/button';
-import { type User } from '@supabase/supabase-js';
-import { useRouter } from 'next/navigation';
-import { createClient } from '~/utils/supabase/client';
+import { Button } from "@nextui-org/button";
+import { type User } from "@supabase/supabase-js";
+import { useRouter } from "next/navigation";
+import { createClient } from "~/utils/supabase/client";
 
 export default function SignOutButton({ user }: { user: User }) {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function SignOutButton({ user }: { user: User }) {
   return (
     <Button
       type="button"
-      className="text-md font-medium text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      className="text-md font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
       onClick={handleSignOut}
     >
       Sign out
