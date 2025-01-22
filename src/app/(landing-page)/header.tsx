@@ -1,7 +1,6 @@
 "use client";
 
 import { Image } from "@nextui-org/react";
-import { usePresence } from "framer-motion";
 import { HeroButtons } from "~/components/header/buttons";
 
 const Hero = () => {
@@ -45,8 +44,6 @@ const Hero = () => {
 };
 
 export function Header() {
-  const [isPresent, safeToRemove] = usePresence();
-
   return (
     <div className="flex h-screen w-full flex-col">
       <Hero />
